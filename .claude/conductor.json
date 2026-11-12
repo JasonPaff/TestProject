@@ -1,0 +1,42 @@
+// ght's conductor profile, written by `conduct init`: the shared layer under each machine's
+// ~/.conductor/projects/ght.json, read on origin/<baseBranch>. It changes by PR.
+// `conduct profile ght` shows each field and its source; the conductor's README (Projects)
+// says what each does.
+{
+  "baseBranch": "main",
+  "ci": {
+    "kind": "github-actions"
+  },
+  "codeHost": {
+    "kind": "github",
+    "owner": "JasonPaff",
+    "repo": "TestProject"
+  },
+  // 3.7.0-dev.11 first reads tracker.priorityLabels.
+  "conductor": "3.7.0-dev.11",
+  "gates": [
+    "plan",
+    "merge"
+  ],
+  "name": "ght",
+  "protocol": 2,
+  "release": {
+    "handoff": "main is ready to ship: release it the project's own way. The conductor never releases."
+  },
+  "setup": [],
+  "skills": {
+    "verify": "verify-ght",
+    "work": "conductor:work-item"
+  },
+  "slots": 2,
+  "tracker": {
+    "humanLabel": "human",
+    "key": "GHT",
+    "kind": "github-issues",
+    // The queue's priority against other projects' (1 urgent to 4 low): the scheduler takes only a
+    // queue that has one.
+    "priority": 2,
+    // An issue's place in the queue by its labels, 1 urgent to 4 low, ahead of oldest first.
+    "priorityLabels": { "priority: urgent": 1, "priority: high": 2, "priority: medium": 3, "priority: low": 4 }
+  }
+}
