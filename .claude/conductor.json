@@ -28,7 +28,8 @@
     "verify": "verify-ght",
     "work": "conductor:work-item"
   },
-  "slots": 2,
+  // One worker at a time, so items launch in queue order (ATK-985).
+  "slots": 1,
   "tracker": {
     "humanLabel": "human",
     "key": "GHT",
